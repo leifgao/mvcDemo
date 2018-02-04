@@ -1,0 +1,61 @@
+group 'me.leifgao.www'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'base'
+
+ext {
+    springVersion   = '4.2.4.RELEASE'
+    slf4jVersion    = '1.7.13'
+    lombok          = '1.16.18'
+}
+
+buildscript {
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+    }
+}
+
+subprojects {
+    apply plugin: 'idea'
+    apply plugin: 'java'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+    }
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        compile("org.slf4j:slf4j-api:$slf4jVersion")
+        compile("org.projectlombok:lombok:$lombok")
+        compile("org.springframework:spring-web:$springVersion")
+        compile("org.springframework:spring-webmvc:$springVersion")
+    }
+}
+
+project(":mvc04b"){
+    description = "spring-mvc-04b"
+    apply plugin: 'war'
+    dependencies {
+
+    }
+}
+
+project(":mvc05"){
+    description = "spring-mvc-04"
+    apply plugin: 'war'
+    dependencies {
+
+    }
+}
