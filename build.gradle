@@ -7,6 +7,8 @@ ext {
     springVersion   = '4.2.4.RELEASE'
     slf4jVersion    = '1.7.13'
     lombok          = '1.16.18'
+    servletVersion  = '3.1.0'
+    jstlVersion     = '1.2'
 }
 
 buildscript {
@@ -57,5 +59,14 @@ project(":mvc05"){
     apply plugin: 'war'
     dependencies {
 
+    }
+}
+
+project(":p38"){
+    description = "kaitao-mvc-p38"
+    apply plugin: 'war'
+    dependencies {
+        compile("javax.servlet:javax.servlet-api:$servletVersion")
+        compile("javax.servlet:jstl:$jstlVersion")
     }
 }
