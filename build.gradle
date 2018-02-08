@@ -5,22 +5,23 @@ apply plugin: 'base'
 
 ext {
     springVersion   = '4.2.4.RELEASE'
-    slf4jVersion    = '1.7.13'
     lombok          = '1.16.18'
     servletVersion  = '3.1.0'
     jstlVersion     = '1.2'
+    slf4jVersion    = '1.7.23'
+    log4jVersion    = '2.2'
 }
 
 buildscript {
-
     repositories {
         mavenLocal()
-        mavenCentral()
+        maven {url 'http://maven.aliyun.com/nexus/content/groups/public/'}
     }
 
     dependencies {
     }
 }
+
 
 subprojects {
     apply plugin: 'idea'
@@ -35,14 +36,26 @@ subprojects {
 
     repositories {
         mavenLocal()
-        mavenCentral()
+        maven {url 'http://maven.aliyun.com/nexus/content/groups/public/'}
     }
 
     dependencies {
-        compile("org.slf4j:slf4j-api:$slf4jVersion")
         compile("org.projectlombok:lombok:$lombok")
         compile("org.springframework:spring-web:$springVersion")
         compile("org.springframework:spring-webmvc:$springVersion")
+        compile("org.slf4j:slf4j-api:$slf4jVersion")
+        //slf4j 和 log4j2集成
+        compile("org.apache.logging.log4j:log4j-api:$log4jVersion")
+        compile("org.apache.logging.log4j:log4j-core:$log4jVersion")
+        compile("org.apache.logging.log4j:log4j-slf4j-impl:$log4jVersion")
+//        compile("org.apache.logging.log4j:log4j-web:$log4jVersion")
+        compile("org.apache.logging.log4j:log4j-jcl:$log4jVersion")
+        //slf4j 和 log4j1集成
+        //compile("org.slf4j:slf4j-log4j12:$slf4jVersion")
+        //compile("log4j:log4j:$log4jVersion")
+
+        //slf4j 和 jdk-log集成
+        //compile("org.slf4j:slf4j-jdk14:$slf4jVersion")
     }
 }
 
@@ -68,5 +81,6 @@ project(":p38"){
     dependencies {
         compile("javax.servlet:javax.servlet-api:$servletVersion")
         compile("javax.servlet:jstl:$jstlVersion")
+
     }
 }
