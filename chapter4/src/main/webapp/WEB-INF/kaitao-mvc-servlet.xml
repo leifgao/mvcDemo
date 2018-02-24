@@ -17,6 +17,10 @@
         <!--<property name="requireSession" value="true"/>-->
     </bean>
 
+    <bean name="/forwardToServlet" class="org.springframework.web.servlet.mvc.ServletForwardingController">
+        <property name="servletName" value="forwarding"/>
+    </bean>
+
     <!-- HandlerMapping -->
     <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
 

@@ -19,6 +19,11 @@
     </servlet-mapping>
     <!--DispatcherServlet配置 end-->
 
+    <servlet>
+        <servlet-name>forwarding</servlet-name>
+        <servlet-class>me.leifgao.www.controller.ForwardingServlet</servlet-class>
+    </servlet>
+
     <!--中文乱码 start-->
     <filter>
         <filter-name>CharacterEncodingFilter</filter-name>
