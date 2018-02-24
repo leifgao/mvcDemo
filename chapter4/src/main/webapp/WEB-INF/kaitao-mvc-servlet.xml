@@ -13,6 +13,9 @@
     <mvc:resources mapping="/favicon.ico" location="/resources/" />
 
     <bean name="/hello" class="me.leifgao.www.controller.HelloWorldController"/>
+    <bean name="/helloWithoutReutrnModelAndView" class="me.leifgao.www.controller.HelloWorldWithoutReturnModelAndViewController">
+        <!--<property name="requireSession" value="true"/>-->
+    </bean>
 
     <!-- HandlerMapping -->
     <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
