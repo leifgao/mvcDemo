@@ -17,8 +17,15 @@
         <!--<property name="requireSession" value="true"/>-->
     </bean>
 
+    <!-- forwardToServlet setting start -->
     <bean name="/forwardToServlet" class="org.springframework.web.servlet.mvc.ServletForwardingController">
         <property name="servletName" value="forwarding"/>
+    </bean>
+    <!-- forwardToServlet setting end -->
+
+
+    <!--  -->
+    <bean name="/abstractCommand" class="me.leifgao.www.controller.MyAbstractCommandController">
     </bean>
 
     <!-- HandlerMapping -->

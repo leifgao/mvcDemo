@@ -4,7 +4,7 @@ version '1.0-SNAPSHOT'
 apply plugin: 'base'
 
     ext {
-        springVersion = '4.2.4.RELEASE'
+        springVersion = '3.2.9.RELEASE'
         lombok = '1.16.18'
         servletVersion = '3.1.0'
         jstlVersion = '1.2'
