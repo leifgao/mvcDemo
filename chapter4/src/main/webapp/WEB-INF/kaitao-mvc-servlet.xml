@@ -28,6 +28,14 @@
     <bean name="/abstractCommand" class="me.leifgao.www.controller.MyAbstractCommandController">
     </bean>
 
+    <!-- SimpleFormController start -->
+    <bean name="/simpleForm" class="me.leifgao.www.controller.RegisterSimpleFormController">
+        <property name="formView" value="register"/>
+        <property name="successView" value="redirect:/success"/>
+    </bean>
+    <bean name="/success" class="me.leifgao.www.controller.SuccessController"/>
+    <!-- SimpleFormController end -->
+
     <!-- HandlerMapping -->
     <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
 
