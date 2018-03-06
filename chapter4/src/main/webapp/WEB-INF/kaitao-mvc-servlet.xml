@@ -12,10 +12,12 @@
     <!-- favicon.ico忽略 -->
     <mvc:resources mapping="/favicon.ico" location="/resources/" />
 
+    <!-- AbstractController start -->
     <bean name="/hello" class="me.leifgao.www.controller.HelloWorldController"/>
     <bean name="/helloWithoutReutrnModelAndView" class="me.leifgao.www.controller.HelloWorldWithoutReturnModelAndViewController">
         <!--<property name="requireSession" value="true"/>-->
     </bean>
+    <!-- AbstractController end -->
 
     <!-- forwardToServlet setting start -->
     <bean name="/forwardToServlet" class="org.springframework.web.servlet.mvc.ServletForwardingController">
@@ -24,9 +26,10 @@
     <!-- forwardToServlet setting end -->
 
 
-    <!--  -->
+    <!-- AbstractCommandController start -->
     <bean name="/abstractCommand" class="me.leifgao.www.controller.MyAbstractCommandController">
     </bean>
+    <!-- AbstractCommandController end -->
 
     <!-- SimpleFormController start -->
     <bean name="/simpleForm" class="me.leifgao.www.controller.RegisterSimpleFormController">
@@ -35,6 +38,18 @@
     </bean>
     <bean name="/success" class="me.leifgao.www.controller.SuccessController"/>
     <!-- SimpleFormController end -->
+
+    <!-- AbstractWizardFormController start -->
+    <bean name="/infoFillWizard" class="me.leifgao.www.controller.InfoFillWizardFormController">
+        <property name="pages">
+            <list>
+                <value>baseInfo</value>
+                <value>schoolInfo</value>
+                <value>workInfo</value>
+            </list>
+        </property>
+    </bean>
+    <!-- AbstractWizardFormController end -->
 
     <!-- HandlerMapping -->
     <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
