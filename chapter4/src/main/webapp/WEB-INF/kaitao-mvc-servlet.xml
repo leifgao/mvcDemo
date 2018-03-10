@@ -51,6 +51,14 @@
     </bean>
     <!-- AbstractWizardFormController end -->
 
+
+    <bean id="myWebBindingInitializer" class="me.leifgao.www.controller.MyWebBindingInitializer"/>
+    <bean name="/dataBind" class="me.leifgao.www.controller.DataBinderTestController">
+        <!-- 注入WebBindingInitializer实现 -->
+        <property name="webBindingInitializer" ref="myWebBindingInitializer"/>
+    </bean>
+
+
     <!-- HandlerMapping -->
     <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
 
